@@ -23,6 +23,14 @@ body {
     margin: 0;
     padding: 0;
     padding-top: var(--header-height);
+footer {
+    background-color: #1D1B33;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0px; 
+}
 }
 .header-logo {
     height: 40px;
