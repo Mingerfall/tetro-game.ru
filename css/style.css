@@ -1,6 +1,7 @@
 header {
-    display: flex;
-    justify-content: center;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Три колонки: левая, центр, правая */
     align-items: center;
     background-color: #1D1B33;
     color: #fff;
@@ -9,7 +10,30 @@ header {
     left: 0;  
     z-index: 100;  
     width: 100%;
-    margin: 0px; 
+    margin: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    min-height: var(--header-height); 
+}
+:root {
+    --header-height: 60px;
+}
+header a {
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 25px;
+    align-items: center;
+}
+.header-logo {
+    left: 20px;
+    justify-self: start;
+}
+.header-nav {
+    gap: 25px;
+    justify-content: center;
+}
+.header-soc {
+    justify-content: end;
 }
 body {
     --theme-main: #1D1B33;
@@ -23,28 +47,19 @@ body {
     margin: 0;
     padding: 0;
     padding-top: var(--header-height);
+}
 footer {
-    background-color: #1D1B33;
-    color: #fff;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin: 0px;
-    padding-left: 5%;
-}
-}
-.header-logo {
-    height: 40px;
+background-color: #1D1B33;
+color: #fff;
+bottom: 0;
+left: 0;
+width: 100%;
+margin: 0px;
+padding-left: 5%; 
 }
 a {
     text-decoration: none;
     color: #fff;
-}
-header a {
-    font-size: 15px;
-    font-weight: 600;
-    margin-right: 25px;
-    align-items: center;
 }
 button {
     font-family: 'manrope', sans—serif;
@@ -57,14 +72,10 @@ button {
     box-shadow: 0 16px 36px #ae1a3d;
     padding: 15px;
 }
-:root {
-    --header-height: 40px;
-}
 h1 {
- align-items: center;
+ text-align: center;
  justify-content: center;
 }
-
 div {
     padding: 10px;
 }
