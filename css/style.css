@@ -1,91 +1,313 @@
-header {
-
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* Три колонки: левая, центр, правая */
-    align-items: center;
-    background-color: #1D1B33;
-    color: #fff;
-    position: fixed;
-    top: 0;  
-    left: 0;  
-    z-index: 100;  
-    width: 100%;
-    margin: 0;
-    padding: 0 20px;
+/* Глобальные стили для всех элементов */
+* {
     box-sizing: border-box;
-    min-height: var(--header-height); 
+    margin: 0;
+    padding: 0;
 }
-:root {
-    --header-height: 60px;
+/* Подключение шрифта Manrope */
+@font-face {
+    font-family: 'Manrope';
+    src: url('../fonts/Manrope/static/Manrope-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
-header a {
-    font-size: 15px;
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../fonts/Manrope/static/Manrope-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../fonts/Manrope/static/Manrope-SemiBold.ttf') format('truetype');
     font-weight: 600;
-    margin-right: 25px;
-    align-items: center;
+    font-style: normal;
+    font-display: swap;
 }
-.header-logo {
-    left: 20px;
-    justify-self: start;
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../fonts/Manrope/static/Manrope-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
-.header-nav {
-    gap: 25px;
-    justify-content: center;
+
+:root {
+    --header-height: 70px; /* Высота шапки */
+    --theme-main: #1D1B33; /* Основной цвет темы */
+    --theme-accent: #F42657; /* Акцентный цвет */
+    --text-light: #ffffff; /* Белый текст */
 }
-.header-soc {
-    justify-content: end;
-}
+
 body {
-    --theme-main: #1D1B33;
-    --theme-main-transparent: rgba(251, 82, 79, 0);
-    --theme-shadow: rgba(251, 82, 79, 0.5);
-    --theme-accent: #F42657;
-    --theme-accent-transparent: rgba(250, 34, 30, 0);
-    --theme-text: rgb(var(--color-white));
-    font-family: 'manrope', sans-serif;
+    font-family: 'Manrope', sans-serif;
     color: #1D1B33;
     margin: 0;
     padding: 0;
-    padding-top: var(--header-height);
+    padding-top: var(--header-height); /* Добавляем отступ сверху равный высоте шапки */
+    line-height: 1.6; /* Межстрочный интервал */
 }
-footer {
-background-color: #1D1B33;
-color: #fff;
-bottom: 0;
-left: 0;
-width: 100%;
-margin: 0px;
-padding-left: 5%; 
-}
-a {
-    text-decoration: none;
-    color: #fff;
-}
-button {
-    font-family: 'manrope', sans—serif;
-    font-size: 15px;
-    color: #fff;
-    background-color: #F42657;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    box-shadow: 0 16px 36px #ae1a3d;
-    padding: 15px;
-}
-h1 {
- text-align: center;
- justify-content: center;
-}
-div {
-    padding: 10px;
-}
-.my-widget {
+
+header {
+    display: grid; /* Используем CSS Grid для размещения элементов */
+    grid-template-columns: 1fr 2fr 1fr; /* Три колонки: лого, навигация, соцсети */
+    align-items: center; /* Выравниваем элементы по центру вертикально */
+    background-color: var(--theme-main); /* Используем переменную для основного цвета */
+    color: var(--text-light); /* Белый текст */
+    position: fixed; /* Фиксируем шапку вверху страницы */
+    top: 0;  
+    left: 0;
+    right: 0;
+    z-index: 100; /* Устанавливаем высокий z-index чтобы шапка была поверх других элементов */
     width: 100%;
-    height: 400px;
+    margin: 0;
+    padding: 0 20px; /* Внутренние отступы слева и справа */
+    min-height: var(--header-height); /* Минимальная высота */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для визуального отделения */
 }
-@media(min-width: 1200px){
+
+/* Логотип в шапке */
+.header-logo img {
+    height: 40px; /* Фиксированная высота логотипа */
+    width: auto; /* Сохраняем пропорции */
+}
+
+.header-nav {
+    display: flex;
+    gap: 25px; /* Расстояние между пунктами меню */
+    justify-content: center; /* Выравниваем по центру */
+}
+
+.header-nav a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-light); /* Белый цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s; /* Плавное изменение цвета при наведении */
+}
+
+.header-nav a:hover {
+    color: var(--theme-accent); /* Меняем цвет при наведении на акцентный */
+}
+
+/* Стили для иконок соцсетей */
+.header-soc {
+    display: flex;
+    justify-content: flex-end; /* Выравниваем по правому краю */
+    gap: 15px; /* Расстояние между иконками */
+}
+
+.soc-icon {
+    width: 24px; /* Размер иконок */
+    height: 24px;
+    transition: transform 0.3s; /* Плавное увеличение при наведении */
+}
+
+.soc-icon:hover {
+    transform: scale(1.1); /* Увеличиваем иконку при наведении */
+}
+
+/* Стили для первого экрана (секция .morda) */
+.morda {
+    position: relative; /* Относительное позиционирование для псевдоэлемента */
+    display: flex;
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center;
+    min-height: 100vh; /* Минимальная высота на весь экран */
+    padding: 40px; /* Внутренние отступы */
+    background-image: url('../img/glavniy-ekran-tetro-game.webp'); /* Фоновое изображение */
+    background-size: cover; /* Растягиваем изображение на всю секцию */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Запрещаем повторение */
+}
+
+/* Затемняющий overlay для лучшей читаемости текста поверх фона */
+.morda::before {
+    content: ''; /* Обязательное свойство для псевдоэлементов */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(29, 27, 51, 0.9) 0%, rgba(29, 27, 51, 0.7) 50%, rgba(29, 27, 51, 0.5) 100%); /* Градиентный overlay */
+    z-index: 1; /* Размещаем под контентом, но над фоном */
+}
+
+/* Контейнер для текстового контента */
+.morda-content {
+    position: relative; /* Поднимаем над overlay */
+    z-index: 2; /* Устанавливаем выше overlay */
+    color: var(--text-light); /* Белый текст */
+    width: 50%; /* Занимает половину ширины */
+    padding-right: 40px; /* Отступ справа */
+}
+
+.morda-content h1 {
+    font-size: 3rem; /* Крупный заголовок */
+    font-weight: 700; /* Жирное начертание */
+    margin-bottom: 20px; /* Отступ снизу */
+    line-height: 1.2; /* Межстрочный интервал */
+}
+
+.morda-content p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* Отступ слева для псевдоэлемента */
+}
+
+/* Добавляем галочку перед каждым преимуществом */
+.morda-content p::before {
+    content: '✓'; /* Символ галочки */
+    position: absolute;
+    left: 0;
+    color: var(--theme-accent); /* Акцентный цвет */
+    font-weight: bold;
+}
+
+/* Контейнер для логотипа */
+.morda-logo {
+    position: relative;
+    z-index: 2; /* Поднимаем над overlay */
+    width: 50%; /* Занимает половину ширины */
+    text-align: center; /* Выравниваем по центру */
+}
+
+.morda-logo img {
+    max-width: 80%; /* Максимальная ширина 80% от контейнера */
+    height: auto; /* Сохраняем пропорции */
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5)); /* Тень для лучшего выделения */
+}
+
+/* Стили для кнопки */
+button {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-light);
+    background-color: var(--theme-accent);
+    border: none;
+    border-radius: 30px; /* Закругленные углы */
+    cursor: pointer;
+    padding: 15px 30px;
+    margin-top: 30px;
+    transition: all 0.3s; /* Плавные переходы для всех свойств */
+    box-shadow: 0 5px 15px rgba(244, 38, 87, 0.3); /* Тень */
+}
+
+button:hover {
+    background-color: #ff3a6d; /* Более светлый оттенок при наведении */
+    transform: translateY(-3px); /* Слегка поднимаем кнопку */
+    box-shadow: 0 8px 20px rgba(244, 38, 87, 0.4); /* Увеличиваем тень при наведении */
+}
+
+/* Стили для блока преимуществ */
+.features {
+    padding: 60px 20px; /* Внутренние отступы */
+    text-align: center; /* Выравнивание по центру */
+    background-color: #f8f9fa; /* Светлый фон */
+    display: flex; /* Flexbox для горизонтального расположения */
+    justify-content: space-around; /* Равномерное распределение */
+    flex-wrap: wrap; /* Перенос на новую строку при необходимости */
+}
+
+.features p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 10px 20px;
+}
+
+/* Стили для остальных секций */
+.about, .reviews {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#uslugi-glavnaya, #cases-glavnaya, #contacts-glavnaya {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--theme-main);
+}
+
+/* Стили для футера */
+footer {
+    background-color: var(--theme-main);
+    color: var(--text-light);
+    padding: 40px 5%;
+    text-align: center;
+}
+
+/* Стили для карты */
+.my-widget {
+    max-width: 100%; /* Ограничиваем максимальную ширину */
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 8px; /* Закругленные углы */
+}
+
+/* Адаптивность для больших экранов */
+@media (min-width: 1200px) {
     .my-widget {
         width: 1080px;
         height: 600px;
+    }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+    .morda-content h1 {
+        font-size: 2.5rem; /* Уменьшаем размер заголовка */
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr; /* Одна колонка вместо трех */
+        grid-template-rows: auto auto auto; /* Три строки */
+        gap: 15px; /* Расстояние между элементами */
+        padding: 15px; /* Уменьшаем отступы */
+    }
+    .header-nav {
+        order: 3; /* Меняем порядок отображения (последний) */
+        flex-wrap: wrap; /* Разрешаем перенос пунктов меню */
+    }
+    
+    .header-soc {
+        justify-content: center; /* Центрируем иконки соцсетей */
+    }
+    
+    .morda {
+        flex-direction: column; /* Меняем направление flex на колонку */
+        text-align: center; /* Выравниваем текст по центру */
+        padding: 20px; /* Уменьшаем отступы */
+    }
+    
+    .morda-content,
+    .morda-logo {
+        width: 100%; /* Полная ширина на мобильных */
+        padding: 0; /* Убираем отступы */
+    }
+    
+    .morda-content {
+        margin-bottom: 40px; /* Отступ снизу */
+    }
+    
+    .morda-content h1 {
+        font-size: 2rem; /* Уменьшаем размер заголовка */
+    }
+    
+    .features {
+        flex-direction: column; /* Вертикальное расположение преимуществ */
     }
 }
