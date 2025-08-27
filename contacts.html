@@ -4,27 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" />
+    <link rel="canonical" href="https://tetro-game.ru/contacts">
     <title>Контакты Tetro Game</title>
 </head>
 <body>
-        <header>
-            <a href="index.html"><img class="header-logo" src="img/logo.svg" alt="Tetro Game логотип"></a>
-        <div>
+    <!-- Шапка сайта -->
+     <!-- Шапка сайта -->
+    <header>
+            <!-- Логотип -->
+        <div class="header-logo">
+            <a href="index.html"><img src="img/logo.svg" alt="Tetro Game логотип"></a>
+        </div>
+            <!-- Навигационное меню для десктопа -->
+        <nav class="header-nav">
             <a href="index.html">Главная</a>
             <a href="index.html#uslugi-glavnaya">Услуги</a>
             <a href="index.html#cases-glavnaya">Портфолио</a>
             <a href="#">Контакты</a>
+        </nav>
+            <!-- Иконки соц. сетей -->
+        <div class="header-soc">
+            <a href="#"><img src="img/telegram-icon.svg" alt="Telegram" class="soc-icon"></a>
+            <a href="#"><img src="img/vk-icon.svg" alt="VK" class="soc-icon"></a>
+            <a href="#"><img src="img/whatsapp-icon.svg" alt="WhatsApp" class="soc-icon"></a>
         </div>
+            <!-- Кнопка бургер-меню для мобилок -->
+        <button class="burger-menu" aria-label="Открыть меню">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
+            <!-- Мобильное меню - скрытое по умолчанию -->
+        <div class="mobile-nav">
+            <a href="index.html">Главная</a>
+            <a href="index.html#uslugi-glavnaya">Услуги</a>
+            <a href="index.html#cases-glavnaya">Портфолио</a>
+            <a href="#">Контакты</a>
+                <!-- Соцсети для мобильной версии -->
+            <div class="mobile-soc">
+                <a href="#"><img src="img/telegram-icon.svg" alt="Telegram" class="soc-icon"></a>
+                <a href="#"><img src="img/vk-icon.svg" alt="VK" class="soc-icon"></a>
+                <a href="#"><img src="img/whatsapp-icon.svg" alt="WhatsApp" class="soc-icon"></a>
+            </div>
+        </div>
+                <!-- Затемнение фона при открытом меню -->
+            <div class="nav-overlay"></div>
         </header>
-    <h1>Контакты</h1>
-    <p>Здесь укажем юридическую информацию, контакты, карту и желательно фотографии торговой точки</p>
-    <iframe class="my-widget" src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=103849672569" width="750" height="400" frameborder="0"></iframe>
-        <footer>
-        <p>Подвал сайта с контактами, адресом, ИНН компании и прочей юридической шелухой</p>
+    <main class="contacts-container">
+        <h1>Контакты</h1>
+        <div class="contacts-grid">
+            <!-- Блок с контактной информацией -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Адрес</h3>
+                    <p>г. Нижнекамск, проспект Мира, 59А, ТЦ «Шатлык»</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Телефон</h3>
+                    <p><a href="tel:+79047643897">+7 (904) 764-38-97</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@tetro-game.ru">Mingerfall@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Вс: 9:00 - 20:00</p>
+                </div>
+            </div>
+             <!-- Блок с картой -->
+            <div class="map-container">
+                <h2>Мы на карте</h2>
+                <iframe class="my-widget" src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=103849672569" width="100%" height="400" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!-- Блок с юридической информацией -->
+        <div class="legal-info">
+            <h2>Юридическая информация</h2>
+            <p>ИП Хайбуллин Альмир Рамилевич</p>
+            <p>ИНН: 165923074040</p>
+            <p>ОГРНИП: 322169000180247</p>
+        </div>
+        <!-- Блок с фотографиями торговой точки -->
+        <div class="photos-container">
+            <h2>Наша торговая точка</h2>
+            <p>Здесь будут фотографии торговой точки</p>
+            <!-- В будущем можно добавить реальные фотографии -->
+            <div class="placeholder-photos">
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+            </div>
+        </div>
+    </main>
+    <!-- Футер сайта -->
+    <footer>
+        <p>© 2025 Tetro Game. Все права защищены.</p>
     </footer>
 </body>
 </html>
