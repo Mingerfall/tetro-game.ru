@@ -47,15 +47,14 @@
 body {
     font-family: 'Manrope', sans-serif;
     color: #1D1B33;
-    margin: 0;
+    margin: var(--header-height) 0 0 0;
     padding: 0;
-    padding-top: var(--header-height); /* Добавляем отступ сверху равный высоте шапки */
     line-height: 1.6; /* Межстрочный интервал */
 }
 
 header {
     display: grid; /* Используем CSS Grid для размещения элементов */
-    grid-template-columns: 1fr 2fr 1fr; /* Три колонки: лого, навигация, соцсети */
+    grid-template-columns: auto 1fr auto; /* Три колонки: лого слева, навигация по центру, соцсети справа */
     align-items: center; /* Выравниваем элементы по центру вертикально */
     background-color: var(--theme-main); /* Используем переменную для основного цвета */
     color: var(--text-light); /* Белый текст */
@@ -63,7 +62,7 @@ header {
     top: 0;  
     left: 0;
     right: 0;
-    z-index: 100; /* Устанавливаем высокий z-index чтобы шапка была поверх других элементов */
+    z-index: 1000; /* Устанавливаем высокий z-index чтобы шапка была поверх других элементов */
     width: 100%;
     margin: 0;
     padding: 0 20px; /* Внутренние отступы слева и справа */
@@ -79,8 +78,8 @@ header {
 
 .header-nav {
     display: flex;
-    gap: 25px; /* Расстояние между пунктами меню */
     justify-content: center; /* Выравниваем по центру */
+    gap: 25px; /* Расстояние между пунктами меню */
 }
 
 .header-nav a {
@@ -95,10 +94,10 @@ header {
     color: var(--theme-accent); /* Меняем цвет при наведении на акцентный */
 }
 
-/* Стили для иконок соцсетей */
+/* Соцсети на десктопе */
 .header-soc {
     display: flex;
-    justify-content: flex-end; /* Выравниваем по правому краю */
+    justify-self: end;
     gap: 15px; /* Расстояние между иконками */
 }
 
@@ -109,7 +108,89 @@ header {
 }
 
 .soc-icon:hover {
-    transform: scale(1.1); /* Увеличиваем иконку при наведении */
+    transform: scale(1.2); /* Увеличиваем иконку при наведении */
+}
+
+/* Бургер-меню - скрыто на десктопе */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.burger-line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Мобильное меню - скрыто на десктопе */
+.mobile-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--theme-main);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transform: translateY(-100%); /* Начальное положение - скрыто */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    display: flex; /* Всегда flex, но скрыто трансформацией */
+}
+
+.mobile-nav a {
+    font-size: 18px;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* Соцсети в мобильном меню */
+.mobile-soc {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-soc .soc-icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* Затемнение фона - скрыто на десктопе */
+.nav-overlay {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Стили для первого экрана (секция .morda) */
@@ -118,8 +199,7 @@ header {
     display: flex;
     justify-content: space-between; /* Распределяем пространство между элементами */
     align-items: center;
-    min-height: 100vh; /* Минимальная высота на весь экран */
-    padding: 40px; /* Внутренние отступы */
+    height: calc(100vh - var(--header-height)); /* Минимальная высота на весь экран */
     background-image: url('../img/glavniy-ekran-tetro-game.webp'); /* Фоновое изображение */
     background-size: cover; /* Растягиваем изображение на всю секцию */
     background-position: center; /* Центрируем изображение */
@@ -144,7 +224,8 @@ header {
     z-index: 2; /* Устанавливаем выше overlay */
     color: var(--text-light); /* Белый текст */
     width: 50%; /* Занимает половину ширины */
-    padding-right: 40px; /* Отступ справа */
+    padding: 0 0 0 5%; /* Добавлен отступ слева */
+    box-sizing: border-box; /* Учитываем padding в ширине */
 }
 
 .morda-content h1 {
@@ -176,6 +257,7 @@ header {
     z-index: 2; /* Поднимаем над overlay */
     width: 50%; /* Занимает половину ширины */
     text-align: center; /* Выравниваем по центру */
+    padding: 40px 0;
 }
 
 .morda-logo img {
@@ -264,50 +346,118 @@ footer {
 }
 
 /* Адаптивность для планшетов */
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 769px) {
+    .header-nav {
+        gap: 15px;
+    }
+    
+    .header-nav a {
+        font-size: 14px;
+    }
+    
     .morda-content h1 {
-        font-size: 2.5rem; /* Уменьшаем размер заголовка */
+        font-size: 2.5rem;
     }
 }
 
-/* Адаптивность для мобильных устройств */
+    /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    header {
-        grid-template-columns: 1fr; /* Одна колонка вместо трех */
-        grid-template-rows: auto auto auto; /* Три строки */
-        gap: 15px; /* Расстояние между элементами */
-        padding: 15px; /* Уменьшаем отступы */
+    :root {
+        --header-height: 70px; /* Высота шапки */
     }
-    .header-nav {
-        order: 3; /* Меняем порядок отображения (последний) */
-        flex-wrap: wrap; /* Разрешаем перенос пунктов меню */
+
+    header {
+        grid-template-columns: auto 1fr auto; /* Лого - пространство - бургер */
+        padding: 0 15px;
+        position: fixed; /* Важно: фиксируем шапку */
+        z-index: 1000; /* Увеличиваем z-index для шапки */
+    }
+
+        /* Прячем навигацию и соцсети в основном заголовке */
+    .header-nav,
+    .header-soc {
+        display: none;
+    }
+
+        /* Показываем бургер-меню на мобильных */
+    .burger-menu {
+        display: flex;
+        justify-self: end; /* Добавляем выравнивание по правому краю */
+        margin-left: auto; /* Добавляем отступ слева для выталкивания вправо */
+    }
+
+        /* Анимация бургера при активации */
+    .burger-menu.active .burger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
     }
     
-    .header-soc {
-        justify-content: center; /* Центрируем иконки соцсетей */
+    .burger-menu.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger-menu.active .burger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-nav.active {
+        transform: translateY(0); /* Показываем меню */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+        /* Блокируем прокрутку страницы при открытом меню */
+    body.menu-open {
+        overflow: hidden;
     }
     
     .morda {
-        flex-direction: column; /* Меняем направление flex на колонку */
-        text-align: center; /* Выравниваем текст по центру */
-        padding: 20px; /* Уменьшаем отступы */
+        height: calc(100vh - var(--header-height));
+        flex-direction: column;
+        justify-content: center;
+        background-size: cover;
+        background-position: top center; /* Выравниваем по верхнему краю */
     }
     
     .morda-content,
     .morda-logo {
-        width: 100%; /* Полная ширина на мобильных */
-        padding: 0; /* Убираем отступы */
+        width: 100%;
+        padding: 20px;
     }
     
     .morda-content {
-        margin-bottom: 40px; /* Отступ снизу */
+        margin-bottom: 0; /* Убираем отступ снизу */
+        padding-top: 40px; /* Добавляем отступ сверху */
     }
     
     .morda-content h1 {
-        font-size: 2rem; /* Уменьшаем размер заголовка */
+        font-size: 2rem;
+        margin-top: 10px;
     }
     
+    .morda-logo img {
+        padding-bottom: 40px;;
+    }
+
     .features {
-        flex-direction: column; /* Вертикальное расположение преимуществ */
+        flex-direction: column;
+        padding: 40px 15px;
+    }
+
+    #uslugi-glavnaya, 
+    #cases-glavnaya, 
+    #contacts-glavnaya,
+    .about,
+    .reviews {
+        padding: 40px 15px;
+        scroll-margin-top: var(--header-height);
+    }
+    
+    h2 {
+        font-size: 1.8rem;
     }
 }
