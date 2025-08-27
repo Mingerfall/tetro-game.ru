@@ -3,32 +3,55 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Подключаем CSS стили -->
+        <!-- Подключаем CSS стили -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="canonical" href="https://tetro-game.ru/">
     <title>Tetro Game</title>
 </head>
 <body>
-    <!-- Шапка сайта -->
+        <!-- Шапка сайта -->
     <header>
+            <!-- Логотип -->
         <div class="header-logo">
             <a href="#"><img src="img/logo.svg" alt="Tetro Game логотип"></a>
         </div>
-        <!-- Навигационное меню -->
-        <div class="header-nav">
+            <!-- Навигационное меню для десктопа -->
+        <nav class="header-nav">
             <a href="#">Главная</a>
             <a href="#uslugi-glavnaya">Услуги</a>
             <a href="#cases-glavnaya">Портфолио</a>
             <a href="contacts.html">Контакты</a>
-        </div>
-        <!-- Иконки соц. сетей -->
+        </nav>
+            <!-- Иконки соц. сетей -->
         <div class="header-soc">
             <a href="#"><img src="img/telegram-icon.svg" alt="Telegram" class="soc-icon"></a>
             <a href="#"><img src="img/vk-icon.svg" alt="VK" class="soc-icon"></a>
             <a href="#"><img src="img/whatsapp-icon.svg" alt="WhatsApp" class="soc-icon"></a>
         </div>
+            <!-- Кнопка бургер-меню для мобилок -->
+        <button class="burger-menu" aria-label="Открыть меню">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
+            <!-- Мобильное меню - скрытое по умолчанию -->
+        <div class="mobile-nav">
+            <a href="#">Главная</a>
+            <a href="#uslugi-glavnaya">Услуги</a>
+            <a href="#cases-glavnaya">Портфолио</a>
+            <a href="contacts.html">Контакты</a>
+                <!-- Соцсети для мобильной версии -->
+            <div class="mobile-soc">
+                <a href="#"><img src="img/telegram-icon.svg" alt="Telegram" class="soc-icon"></a>
+                <a href="#"><img src="img/vk-icon.svg" alt="VK" class="soc-icon"></a>
+                <a href="#"><img src="img/whatsapp-icon.svg" alt="WhatsApp" class="soc-icon"></a>
+            </div>
+        </div>
+                <!-- Затемнение фона при открытом меню -->
+            <div class="nav-overlay"></div>
         </header>
-    <!-- Первый экран (главная секция) -->    
+    <main>
+        <!-- Первый экран (главная секция) -->    
     <section class="morda">
         <div class="morda-content">
             <h1>Ремонт игровых приставок и смартфонов Tetro Game</h1>
@@ -38,46 +61,49 @@
             <p>Четвёртое преимущество</p>
             <button>Позвонить</button>
         </div>
-        <!-- Контейнер для логотипа -->
+            <!-- Контейнер для логотипа -->
         <div class="morda-logo">
             <img src="img/logo-full.svg" alt="Сервис по ремонту игровых приставок и смартфонов Tetro Game">
         </div>
     </section>
-    <!-- Блок преимуществ -->
+        <!-- Блок преимуществ -->
     <div class="features">
         <p>Работаем каждый день</p>
         <p>Ремонт в быстрые сроки</p>
         <p>Ремонтируем и кастомизируем игровые приставки</p>
     </div>
-    <!-- Услуги -->
+        <!-- Услуги -->
     <div id="uslugi-glavnaya">
         <h2>Наши Услуги и цены</h2>
         <p>Перечисляем Услуги и задаём им цены</p>
     </div>
-    <!-- О нас - добавили класс для стилизации -->
+        <!-- О нас -->
     <div class="about">
         <h2>О нас</h2>
         <p>Проведём диагностику и срочный ремонт игровых приставок и смартфонов в Нижнекамске в кратчайшие сроки — Качественно ремонтируем смартфоны с гарантией. Сервисный центр Tetro Game. Звоните по тел. +7–(904)–764–38–97</p>
     </div>
-    <!-- Портфолио -->
+        <!-- Портфолио -->
     <div id="cases-glavnaya">
         <h2>Наши работы</h2>
         <p>Сюда добавим картинки</p>
     </div>
-    <!-- Отзывы -->
+        <!-- Отзывы -->
     <div class="reviews">
         <h2>Отзывы</h2>
     <div style="width:750px;max-width:100%;height:800px;overflow:hidden;position:relative;"><iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/103849672569?comments"></iframe><a href="https://yandex.ru/maps/org/tetro_game/103849672569/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Tetro Game на карте Нижнекамска — Яндекс Карты</a></div>
     </div>
-    <!-- Контакты -->
+        <!-- Контакты -->
     <div id="contacts-glavnaya">
         <h2>Блок обратной связи и карта над футером сайта</h2>
             <p>Вообще тут будет блок обратной связи с кнопкой, а после уже карта Яндекса</p>
             <iframe class="my-widget" src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=103849672569" width="750" height="400" frameborder="0"></iframe>
     </div>
-    <!-- Футер -->
+    </main>
+        <!-- Футер -->
     <footer>
-        <p>Подвал сайта с контактами, адресом, ИНН компании и прочей юридической шелухой</p>
+        <p>© 2025 Tetro Game. Все права защищены.</p>
     </footer>
+        <!-- Подключаем JavaScript файл -->
+    <script src="js/script.js"></script>
 </body>
 </html>
