@@ -337,6 +337,98 @@ footer {
     border-radius: 8px; /* Закругленные углы */
 }
 
+/* Контакты */
+.contacts-container {
+    padding: 20px 5%; /* Отступы для всего main */
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Сетка: контакты слева (1 часть), карта справа (2 части) */
+    gap: 40px; /* Расстояние между колонками */
+    margin-bottom: 60px; /* Отступ снизу */
+    align-items: start; /* Выравнивание по верху */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    gap: 25px; /* Расстояние между элементами контактов */
+}
+
+.contact-h1 {
+    text-align: center;
+}
+
+.contact-item h3 {
+    color: var(--theme-main); /* Цвет заголовка */
+    margin-bottom: 8px; /* Отступ снизу */
+    font-size: 1.2rem; /* Размер шрифта */
+}
+
+.contact-item p {
+    margin: 0; /* Убираем стандартные отступы */
+    font-size: 1.1rem; /* Размер шрифта */
+}
+
+.contact-item a {
+    color: var(--theme-accent); /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: 500; /* Жирность шрифта */
+}
+
+.contact-item a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.map-container {
+    height: 500px; /* Высота контейнера для карты */
+    border-radius: 12px; /* Закругленные углы */
+    overflow: hidden; /* Обрезаем выходящее за границы */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1); /* Тень для карты */
+}
+
+.legal-info {
+    background: #f8f9fa; /* Светлый фон */
+    padding: 30px; /* Внутренние отступы */
+    border-radius: 12px; /* Закругленные углы */
+    margin-bottom: 60px; /* Отступ снизу */
+}
+
+.legal-info h2 {
+    margin-bottom: 20px; /* Отступ снизу */
+    color: var(--theme-main); /* Цвет заголовка */
+}
+
+.placeholder-photos {
+    display: grid; /* Сетка для плейсхолдеров фото */
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 20px; /* Расстояние между фото */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.photo-placeholder {
+    height: 200px; /* Высота плейсхолдера */
+    background: #e9ecef; /* Цвет фона */
+    border-radius: 8px; /* Закругленные углы */
+}
+
+/* Адаптив для мобилок №1 */
+@media (max-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr; /* Одна колонка на мобилках */
+    }
+    
+    .map-container {
+        height: 300px; /* Меньшая высота карты */
+        order: -1; /* Карта будет первой в потоке */
+    }
+    
+    .placeholder-photos {
+        grid-template-columns: 1fr; /* Одна колонка для фото */
+    }
+}
+
 /* Адаптивность для больших экранов */
 @media (min-width: 1200px) {
     .my-widget {
@@ -360,7 +452,7 @@ footer {
     }
 }
 
-    /* Адаптивность для мобильных устройств */
+    /* Адаптивность для мобильных устройств №2 */
 @media (max-width: 768px) {
     :root {
         --header-height: 70px; /* Высота шапки */
